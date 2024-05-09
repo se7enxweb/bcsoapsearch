@@ -30,10 +30,10 @@ function search_ezcontenttree( $searchStr, $searchLimit = 2, $searchOffset = 0 )
 
 function search( $searchStr, $searchLimit = 2, $searchOffset = 0 )
 {
-      include_once( "lib/ezutils/classes/ezini.php" );   
+      // include_once( "lib/ezutils/classes/ezini.php" );
 
       // fetch settings
-      $sini =& eZINI::instance( 'bcsoapsearch.ini' );
+      $sini = eZINI::instance( 'bcsoapsearch.ini' );
       $prefix = $sini->variable( 'BcSoapSearchSettings', 'DocumentUrlPrefix');
 
       // search content tree for string
@@ -44,11 +44,11 @@ function search( $searchStr, $searchLimit = 2, $searchOffset = 0 )
       foreach( $results as $result )
       {
         $contentObject = $result->object();
-        $obj =& $contentObject;
+        $obj = $contentObject;
 	// $dm = $obj->dataMap();
 	$name = $obj->name();
 	$link = $prefix . $result->urlAlias();
-	$description =& $name;
+	$description = $name;
 
 	$resultsArray[] = array( 'title' => $name, 'url' => $link, 'description' => $description );
 	$i++;

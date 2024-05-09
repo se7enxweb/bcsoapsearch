@@ -73,4 +73,6 @@ function search_ezpedia( $searchStr, $searchLimit = 2, $searchOffset = 0 )
     return $results;
 }
 
+// var_dump($server);
+
 ?>
